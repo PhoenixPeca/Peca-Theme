@@ -3,6 +3,8 @@ Peca Theme is an awesome theme for the best file-based CMS ever, Kirby CMS. This
 
 ## Demo?
 - Front End: [DEMO](http://phoenixpeca.zz.vc/)
+  - Browse the site seamlessly.
+
 - Back End: [DEMO](http://phoenixpeca.zz.vc/panel)
   - Username: admin
   - Password: admin
