@@ -1,0 +1,21 @@
+Title: Peca Theme
+
+----
+
+Author: Phoenix Eve Aspacio
+
+----
+
+Email: aspaciop@gmail.com
+
+----
+
+Description: Awesome theme with great features
+
+----
+
+Keywords: Peca,Theme,Awesome,Great,Features,Bootstrap
+
+----
+
+Copyright: © 2012-(date: Year) (link: http://phoenixpeca.ga text: Phoenix Peca)

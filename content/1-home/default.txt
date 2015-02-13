@@ -1,0 +1,33 @@
+Title: Home
+
+----
+
+Description: This is a custom description for this page.
+
+----
+
+Keywords: Home,Page,Awesomeness,Theme,Great,Peca,Greetings
+
+----
+
+Text: 
+
+Peca Theme is an awesome theme for Kirby, a file-based CMS. This theme  was equipped with great features and smart functions. It was optimized for mobile phones, search-engines, social-networking sites, and users of course for best experience.
+
+## Who are you?
+Hi! I am Phoenix Eve Aspacio. I am 14 yrs old. I live in the Philippines. I live in Maslog, Sibulan, Negros Oriental.
+
+## Why is this theme free?
+Hahaha! Good question guys, well there are bundles of reasons why this theme is free:
+- I want everybody to use this theme.
+- I'm still young for online businesses.
+- I don't have the requirements like the cards, I don't know what kind of cards but I know It's a card, maybe it's a playing card, just kidding.
+- I'm contented of what I got.
+- I wanted to be famous. (link: https://twitter.com/PhoenixPeca text: Follow me on twitter).
+- To meet new friends. (link: https://www.facebook.com/phoenix.aspacio text: Add me as a friend).
+
+## Is this theme open source?
+Maybe, I mean you can modify it as much as you want for your own personal/company use, but you can never acknowledge that this theme is yours nor redistribute or resell it.
+
+## Found a bug or want to recommend something?
+(link: /contact text: Send me an email) and I'll try fix it for you, or you can fix it for me by attaching a patch and tell me why should I apply it. Please note that I can't fix everything, because I am still new to kirby and I have limited PHP knowledge and I only accept Peca Theme's bug (FOR BUGS RELATED TO KIRBY ITSELF, NOT THE THEME, REPORT IT TO (link: http://getkirby.com/support text: BASTIAN ALLEIER popup: yes)).

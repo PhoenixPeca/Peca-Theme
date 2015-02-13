@@ -1,0 +1,283 @@
+/* Site */
+body {
+font-family: 'Coming Soon', cursive;
+}
+.logo {
+font-family: 'Lobster', cursive;
+}
+img {
+width: 100%;
+}
+.PECA {
+padding-top: 4px;
+}
+.mrgn {
+margin: 5px;
+word-wrap: break-word;
+}
+.jmbtrn-main {
+padding: 3%;
+margin-bottom: 20px;
+}
+.p-title {
+margin-top: 0px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+border-bottom:0px dashed #4183D7;
+}
+@media (max-width: 768px) {
+.p-title {
+margin-top: 20px;
+}
+.srch {
+margin-right: 0px !important;
+width: 100% !important;
+}
+}
+.NavFootOpacity {
+opacity: 0.8;
+}
+.BodyStyle {
+opacity: 0.93;
+border-radius: 5px;
+}
+h1 {
+border-bottom:3px dashed #4183D7;
+text-align: center;
+}
+h2 {
+border-bottom:3px dashed #26A65B !important;
+text-align: center;
+}
+h3 {
+border-bottom:3px dashed #F7CA18 !important;
+text-align: center;
+}
+h4 {
+border-bottom:3px dashed #F22613 !important;
+text-align: center;
+}
+h5 {
+border-bottom:3px dashed #9A12B3 !important;
+text-align: center;
+}
+h6 {
+border-bottom:3px dashed #F27935 !important;
+text-align: center;
+}
+h1,h2,h3,h4,h5,h6{
+font-family: 'Courgette', cursive;
+padding-bottom: 20px;
+margin-bottom: 20px;
+}
+.pagination {
+display: block;
+}
+.sp-btn {
+width: 100%;
+text-align: left;
+border-radius: 0px;
+}
+.sp-badge {
+margin: 1px 0 0 4px;
+}
+.gtt {
+position: fixed;
+bottom: 7%;
+right: 3px;
+text-decoration: none;
+background-color: rgba(196, 196, 196, 0.50);
+font-size: 15px;
+padding: 1em;
+display: none;
+}
+.gtt:hover {	
+background-color: rgba(135, 135, 135, 0.50);
+text-decoration: none;
+}
+.captcha {
+width: 215px;
+height: 80px;
+}
+hr {
+border-top: 1px solid #C1C1C1;
+}
+blockquote {
+border-left: 5px solid red;
+}
+.video {
+
+}
+
+/* Navbar */
+.navbar-badge {
+margin-left: 4px;
+}
+@media (max-width: 768px) {
+.navbar-badge {
+float: right !important;
+}
+}
+
+/* Footer */
+.footer {
+padding: 20px;
+word-wrap: break-word;
+margin-bottom: 0px;
+border-radius: 0px;
+}
+.ftr-lnk {
+text-align: right;
+}
+
+/* Bootstrap Extras */
+.tags-btn {
+margin-top: 4px;
+}
+.TA-FC {
+	resize:vertical;
+}
+.btn-ol {
+	margin-bottom: 5px;
+	max-width: 100%;
+	white-space: normal;
+}
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+.PageInfo {
+font-size: 12px !important;
+text-align: center;
+position: relative;
+bottom: 30px;
+height: 0px;
+margin-bottom: 0px !important;
+}
+.PageInfo span {
+background-color: #337ab7;
+padding: 3px;
+border-radius: 6px;
+color: white;
+}
+.PageInfo span a {
+color: #fff;
+}
+.TagPage {
+margin-top: 0px;
+}
+.TagPage a {
+color: white;
+text-decoration: none;
+}
+.rm-btn {
+padding-top: 3px;
+padding-bottom: 3px;
+margin-left: 10px;
+border-radius: 15px;
+}
+.pager-panel {
+margin-top: 9px;
+margin-bottom: 0px;
+}
+.TagFilterPager {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+.MainSiteSoul ul {
+margin-bottom: 15px;
+font-size: 20px;
+font-weight: 200;
+list-style-type: circle;
+}
+.navbar-brand {
+color: #757D75 !important;
+padding: 14px 15px;
+font-size: 30px;
+}
+#ChangeColor {color: #4183D7;}
+@-webkit-keyframes colours {
+     20% {color: #26A65B;}
+     40% {color: #F7CA18;}
+     60% {color: #22A7F0;}
+     80% {color: #F22613;}
+     90% {color: #4183D7;}
+}
+@-moz-keyframes colours {
+     20% {color: #26A65B;}
+     40% {color: #F7CA18;}
+     60% {color: #22A7F0;}
+     80% {color: #F22613;}
+     90% {color: #4183D7;}
+}
+
+#ChangeColor {
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: colours;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-direction: normal;
+    -moz-animation-duration: 10s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-name: colours;
+    -moz-animation-timing-function: ease;
+}
+.srch {
+margin-right: 7.5px;
+width: 250px;
+}
+.srch input {
+margin-top: 7.5px;
+margin-bottom: 7.5px;
+height: 35px;
+border-radius: 0px;
+}
+.srch button {
+margin-top: 7.5px;
+margin-bottom: 7.5px;
+height: 35px;
+border-radius: 0px;
+}
+.cntr {
+text-align: center;
+}
+.cntct-frm {
+margin-bottom: 20px;
+}
+.breadcrumb {
+border-bottom:3px dashed #4183D7;
+background-color: initial;
+text-align: center;
+padding: 15px 15px;
+padding-top: 10px;
+}
