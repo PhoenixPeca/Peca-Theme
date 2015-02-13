@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: 
+Disallow: /error
+Disallow: /kirby
+Disallow: /panel
+Disallow: /site
+Disallow: /thumbs
