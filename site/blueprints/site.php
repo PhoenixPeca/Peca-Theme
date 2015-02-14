@@ -9,9 +9,12 @@ fields:
   author:
     label: Author
     type:  text
+    icon: user
+    width: 1/2
   email:
     label: Email
     type:  email
+    width: 1/2
   description:
     label: Description
     type:  textarea
