@@ -6,7 +6,7 @@ Peca Theme is an awesome bootstrap based theme for the file-based CMS, Kirby CMS
   - Browse the site seamlessly.
 
 - Back End: [DEMO](http://phoenixpeca.zz.vc/panel)
-  NOT AVAILABLE
+  - NOT AVAILABLE
 
 ## Why is theme free?
 Hahaha! Good question guys, well there are bundles of reasons why this theme is free:
