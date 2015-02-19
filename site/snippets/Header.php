@@ -114,4 +114,4 @@ margin-bottom: 20px;
 </div>
 <?php snippet('Menu') ?>
 </div>
-</nav> 
+</nav>
