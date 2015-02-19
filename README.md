@@ -1,13 +1,12 @@
 # Peca Theme
-Peca Theme is an awesome theme for the best file-based CMS ever, Kirby CMS. This theme  was equipped with great features and smart functions. It was optimized for mobile phones, search-engines, social-networking sites, and users of course for best experience.
+Peca Theme is an awesome bootstrap based theme for the file-based CMS, Kirby CMS. This theme  was equipped with great features and smart functions. It was optimized for mobile phones, search-engines, social-networking sites, and users of course for best experience.
 
 ## Demo?
 - Front End: [DEMO](http://phoenixpeca.zz.vc/)
   - Browse the site seamlessly.
 
 - Back End: [DEMO](http://phoenixpeca.zz.vc/panel)
-  - Username: admin
-  - Password: admin
+  NOT AVAILABLE
 
 ## Why is theme free?
 Hahaha! Good question guys, well there are bundles of reasons why this theme is free:
