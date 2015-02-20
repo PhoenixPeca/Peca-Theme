@@ -1,24 +1,17 @@
 <?php
-// format as xml
 header('Content-Type: text/xml');
-
-// load kirby
 define('DS', DIRECTORY_SEPARATOR);
 require(__DIR__ . DS . 'kirby' . DS . 'bootstrap.php');
 $kirby = kirby();
 $site = $kirby->site();
-
-// url
-function siteURL()
-{
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-    $domainName = $_SERVER['HTTP_HOST'].'/';
-    return $protocol.$domainName;
+function siteURL() {
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$domainName = $_SERVER['HTTP_HOST'].'/';
+return $protocol.$domainName;
 }
 ?>
-<?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
-    <ShortName><?php echo $site->title() ?></ShortName>
+    <ShortName><?php echo $site->title(); ?></ShortName>
     <Description><?php echo $site->description() ?></Description>
     <Tags><?php echo $site->keywords() ?></Tags>
     <Contact><?php echo $site->email() ?></Contact>
