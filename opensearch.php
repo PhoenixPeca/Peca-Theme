@@ -18,14 +18,14 @@ return $protocol.$domainName;
     <Url type="text/html" template="<?php echo siteurl() ?>?q={searchTerms}"/>
     <Url type="application/opensearchdescription+xml" rel="self" template="<?php echo siteurl().'opensearch.php' ?>"/>
     <LongName><?php echo $site->title().' Search' ?></LongName>
-    <Image height="64" width="64" type="image/png"><?php echo siteurl().'assets/images/logo.png' ?></Image>
-    <Image height="16" width="16" type="image/x-icon"><?php echo siteurl().'favicon.ico' ?></Image>
+    <Image type="image/png"><?php echo siteurl().'assets/images/logo.png' ?></Image>
+    <Image type="image/x-icon"><?php echo siteurl().'favicon.ico' ?></Image>
     <Query role="example" searchTerms="outdoor" />
     <Developer><?php echo $site->title().' Development Team' ?></Developer>
     <Attribution><?php echo 'Copyright '.date('Y').' '.$site->title() ?></Attribution>
     <SyndicationRight>open</SyndicationRight>
-    <AdultContent>false</AdultContent>
-    <Language>en-us</Language>
+    <AdultContent><?php if($site->adult() != 'true' && $site->adult() != 'True' && $site->adult() != 'TRUE' && $site->adult() != 'yes' && $site->adult() != 'Yes' && $site->adult() != 'YES'){ echo 'false'; } else { echo 'true'; } ?></AdultContent>
+    <Language>*</Language>
     <OutputEncoding>UTF-8</OutputEncoding>
     <InputEncoding>UTF-8</InputEncoding>
 </OpenSearchDescription>
