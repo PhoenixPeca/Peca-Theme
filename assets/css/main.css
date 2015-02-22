@@ -6,7 +6,12 @@ font-family: 'Coming Soon', cursive;
 font-family: 'Lobster', cursive;
 }
 img {
-width: 100%;
+display: block;
+margin-left: auto;
+margin-right: auto;
+max-width: 100%;
+max-height: 300px;
+margin-bottom: 10px;
 }
 .PECA {
 padding-top: 4px;
@@ -105,8 +110,13 @@ border-top: 1px solid #C1C1C1;
 blockquote {
 border-left: 5px solid red;
 }
-.video {
-
+.video iframe {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+max-width: 711px;
+margin-bottom: 10px;
 }
 
 /* Navbar */
