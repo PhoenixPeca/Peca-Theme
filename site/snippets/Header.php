@@ -59,11 +59,11 @@
 <!-- Custom Styles -->
 <?php echo css('assets/css/main.css') ?>
 
-<?php echo css('http://fonts.googleapis.com/css?family=Lobster') ?>
+<?php echo css('assets/css/lobster.css') ?>
 
-<?php echo css('http://fonts.googleapis.com/css?family=Courgette') ?>
+<?php echo css('assets/css/courgette.css') ?>
 
-<?php echo css('http://fonts.googleapis.com/css?family=Coming+Soon') ?>
+<?php echo css('assets/css/coming-soon.css') ?>
 
 <style>
 body {
