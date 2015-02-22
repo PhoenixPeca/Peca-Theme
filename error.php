@@ -17,12 +17,17 @@ if($errortitle==false){
        $errortitle = 'Unknown Error';
        $message = 'An unknown error has occurred. You will be redirected to homepage in '.$delay.' seconds.';
 }
+function siteURL() {
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$domainName = $_SERVER['HTTP_HOST'].'/';
+return $protocol.$domainName;
+}
 ?>
 <html>
 <head>
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Courgette">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Coming+Soon">
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="<?php echo siteURL(); ?>assets/css/main.css">
 <meta http-equiv="refresh" content="<?php echo $delay;?>;url=\">
 <title><?php echo $errortitle;?></title>
 </head>
