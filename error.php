@@ -17,17 +17,19 @@ if($errortitle==false){
        $errortitle = 'Unknown Error';
        $message = 'An unknown error has occurred. You will be redirected to homepage in '.$delay.' seconds.';
 }
-function siteURL() {
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-$domainName = $_SERVER['HTTP_HOST'].'/';
-return $protocol.$domainName;
+define('DS', DIRECTORY_SEPARATOR);
+require(__DIR__ . DS . 'kirby' . DS . 'bootstrap.php');
+$kirby = kirby();
+$site = $kirby->site();
+function siteurl() {
+return preg_replace('~/~', '//', preg_replace('~/+~', '/', implode('', explode(basename(__FILE__), kirby()->site()->url()))), 1);
 }
 ?>
 <html>
 <head>
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Courgette">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Coming+Soon">
-<link rel="stylesheet" href="<?php echo siteURL(); ?>assets/css/main.css">
+<link rel="stylesheet" href="<?php echo siteurl(); ?>assets/css/main.css">
 <meta http-equiv="refresh" content="<?php echo $delay;?>;url=\">
 <title><?php echo $errortitle;?></title>
 </head>

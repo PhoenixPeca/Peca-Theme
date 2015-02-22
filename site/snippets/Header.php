@@ -14,10 +14,10 @@
 <?php endif ?>
 <?php endif ?>
 <?php if($page->keywords() != ''): ?>
-<meta name="keywords" content="<?php echo html($page->keywords()) ?>" />
+<meta name="keywords" content="<?php echo preg_replace('!\s+!', ' ', preg_replace('/\s*,+\s*/', ', ', $page->keywords())) ?>" />
 <?php else: ?>
 <?php if($site->keywords() != ''): ?>
-<meta name="keywords" content="<?php echo html($site->keywords()) ?>" />
+<meta name="keywords" content="<?php echo preg_replace('!\s+!', ' ', preg_replace('/\s*,+\s*/', ', ', $site->keywords())) ?>" />
 <?php endif ?>
 <?php endif ?>
 <link rel="canonical" href="<?php echo $page->url() ?>" />
