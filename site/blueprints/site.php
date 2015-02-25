@@ -28,6 +28,13 @@ fields:
     options:
       true: Yes, this site contains adult contents.
       false: No, this site doesn't contain adult contents.
+  simage:
+    label: Smart Image
+    type: radio
+    default: false
+    options:
+      true: Yes, I want to enable Smart Image.
+      false: No, I don't want to enable Smart Image.
   copyright:
     label: Copyright
     type:  textarea

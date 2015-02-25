@@ -18,18 +18,45 @@
 </center>
 </div>
 <div class="panel-body">
+<div class="row">
+<div class="col-sm-6">
 <?php if($image = $article->images()->sortBy('sort', 'asc')->first()): ?>
 <a href="<?php echo $article->url() ?>">
 <img src="<?php echo $image->url() ?>" alt="<?php echo $article->title()->html() ?>" >
 </a>
+<?php else: ?>
+<?php if($site->simage() != 'true' && $site->simage() != 'True' && $site->simage() != 'TRUE' && $site->simage() != 'yes' && $site->simage() != 'Yes' && $site->simage() != 'YES'): ?>
+<a href="<?php echo $article->url() ?>">
+<img src="<?php echo url('assets/images/img-na.png') ?>" alt="Image Not Available" >
+</a>
+<?php else: ?>
+<?php
+$jsrc = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=".urlencode($article->title());
+$jset = json_decode(@file_get_contents($jsrc), true);
+$rand = rand(0, 8);
+?>
+<?php if(!empty($jset["responseData"]["results"])): ?>
+<a href="<?php echo $article->url() ?>">
+<img src="<?php echo $jset["responseData"]["results"][$rand]["url"]; ?>" alt="<?php echo $jset["responseData"]["results"][$rand]["title"]; ?>">
+</a>
+<?php else: ?>
+<a href="<?php echo $article->url() ?>">
+<img src="<?php echo url('assets/images/img-na.png') ?>" alt="Image Not Available" >
+</a>
 <?php endif ?>
+<?php endif ?>
+<?php endif ?>
+</div>
+<div class="col-sm-6">
 <p class="TagPage"><?php if($article->text()->excerpt(200) != '') { echo $article->text()->excerpt(200); } else { echo 'This page/article has no contents.'; } ?><a href="<?php echo $article->url() ?>" class="rm-btn btn-ol btn btn-primary btn-outline">read&nbsp;this&nbsp;→</a></p>
-<hr>
 <?php if ($article->tags() != ''): ?>
+<hr>
 <?php foreach(str::split($article->tags()) as $tag): ?>
 <a class="tags-btn btn btn-<?php if(urldecode(param('tag')) == $tag) { echo 'primary'; } else { echo 'default'; } ?>" href="<?php echo $article->parent()->url() . '/tag:' . urlencode($tag) ?>" role="button"><?php echo $tag; ?></a>
 <?php endforeach ?>
 <?php endif ?>
+</div>
+</div>
 </div>
 </div>
 <?php endforeach ?>

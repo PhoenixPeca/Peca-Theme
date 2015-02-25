@@ -22,4 +22,8 @@ Adult: false
 
 ----
 
+Simage: true
+
+----
+
 Copyright: © 2012-(date: Year) (link: http://phoenixpeca.ga text: Phoenix Peca)

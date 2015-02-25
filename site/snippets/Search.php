@@ -55,18 +55,45 @@ $tag = urldecode(param('tag'));
 </center>
 </div>
 <div class="panel-body">
+<div class="row">
+<div class="col-sm-6">
 <?php if($image = $result->images()->sortBy('sort', 'asc')->first()): ?>
 <a href="<?php echo $result->url() ?>">
 <img src="<?php echo $image->url() ?>" alt="<?php echo $result->title()->html() ?>" >
 </a>
+<?php else: ?>
+<?php if($site->simage() != 'true' && $site->simage() != 'True' && $site->simage() != 'TRUE' && $site->simage() != 'yes' && $site->simage() != 'Yes' && $site->simage() != 'YES'): ?>
+<a href="<?php echo $result->url() ?>">
+<img src="<?php echo url('assets/images/img-na.png') ?>" alt="Image Not Available" >
+</a>
+<?php else: ?>
+<?php
+$jsrc = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=".urlencode($result->title());
+$jset = json_decode(@file_get_contents($jsrc), true);
+$rand = rand(0, 4);
+?>
+<?php if(!empty($jset["responseData"]["results"])): ?>
+<a href="<?php echo $result->url() ?>">
+<img src="<?php echo $jset["responseData"]["results"][$rand]["url"]; ?>" alt="<?php echo $jset["responseData"]["results"][$rand]["title"]; ?>">
+</a>
+<?php else: ?>
+<a href="<?php echo $result->url() ?>">
+<img src="<?php echo url('assets/images/img-na.png') ?>" alt="Image Not Available" >
+</a>
 <?php endif ?>
+<?php endif ?>
+<?php endif ?>
+</div>
+<div class="col-sm-6">
 <p class="TagPage"><?php if($result->text()->excerpt(200) != '') { echo $result->text()->excerpt(200); } else { echo 'This page/article has no contents.'; } ?><a href="<?php echo $result->url() ?>" class="rm-btn btn-ol btn btn-primary btn-outline">read&nbsp;this&nbsp;→</a></p>
-<hr>
 <?php if ($result->tags() != ''): ?>
+<hr>
 <?php foreach(str::split($result->tags()) as $tag): ?>
 <a class="tags-btn btn btn-<?php if(urldecode(param('tag')) == $tag) { echo 'primary'; } else { echo 'default'; } ?>" href="<?php echo $result->parent()->url() . '/tag:' . urlencode($tag) ?>" role="button"><?php echo $tag; ?></a>
 <?php endforeach ?>
 <?php endif ?>
+</div>
+</div>
 </div>
 </div>
 <?php endforeach ?>
