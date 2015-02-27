@@ -51,18 +51,23 @@ ErrorDocument 403 /error.php
 ErrorDocument 404 /error.php
 ErrorDocument 500 /error.php
 
-# 2 DAYS
-<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf)$">
-Header set Cache-Control "max-age=172800, public, must-revalidate"
+# CACHE 30 MINUTES
+<FilesMatch "\.(xml|txt|html|htm|php)$">
+Header set Cache-Control "max-age=1800, must-revalidate"
 </FilesMatch>
 
-# 2 HOURS
-<FilesMatch "\.(xml|txt|html|htm|js|css|php)$">
-Header set Cache-Control "max-age=3600, must-revalidate"
+# CACHE 1 MONTH
+<FilesMatch "\.(js|css|swf|pdf|woff)$">
+Header set Cache-Control "max-age=2592000, must-revalidate"
 </FilesMatch>
 
-#Gzip
+# CACHE 1 YEAR
+<FilesMatch "\.(ico|flv|jpg|jpeg|png|gif)$">
+Header set Cache-Control "max-age=31104000, must-revalidate"
+</FilesMatch>
+
+# Gzip
 <ifmodule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript text/javascript
 </ifmodule>
-#End Gzip
+# End Gzip
