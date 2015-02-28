@@ -65,6 +65,8 @@
 
 <?php echo css('http://fonts.googleapis.com/css?family=Coming+Soon') ?>
 
+<?php echo css('assets/css/pace.css'); ?>
+
 <style>
 body {
 background: url("<?php function rand_img($dir = 'assets/images/bg/img') { $imagesDir = $dir.'/'; $images = glob($imagesDir . '*.{png,PNG,jpg,JPG}', GLOB_BRACE); return $images[array_rand($images)]; } echo url(rand_img()) ?>") no-repeat center center fixed;
@@ -89,6 +91,8 @@ margin-bottom: 20px;
 <?php echo js('assets/js/bootstrap.min.js') ?>
 
 <?php echo js('assets/js/site.js') ?>
+
+<?php echo js('assets/js/pace.js'); ?>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
