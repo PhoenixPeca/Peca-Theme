@@ -11,5 +11,10 @@
 <strong>Warning!</strong> You are using an outdated browser that doesn't seem to fully support our site and many others. In this case, you can upgrade/update your <a href="http://browsehappy.com/" target="_blank">browser</a>.
 </div>
 <![endif]-->
+<?php if($page->isErrorPage()): ?>
+<?php snippet('OnPageSearch') ?>
+<?php endif ?>
+<?php if($page->isErrorPage()): ?><div class="cntr"><?php endif ?>
 <?php echo $page->text()->kirbytext() ?>
+<?php if($page->isErrorPage()): ?></div><?php endif ?>
 </div>

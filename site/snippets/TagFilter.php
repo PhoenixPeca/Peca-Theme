@@ -2,9 +2,11 @@
 <?php $articles = $page->children()->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->paginate(5); ?>
 <?php echo '<h1>#'.$tag.'</h1>'; ?>
 <?php if($articles == ''): ?>
+<?php snippet('OnPageSearch') ?>
 <p class="cntr">There are no pages/articles tagged with "<?php echo $tag ?>" in this page.</p>
 <?php endif ?>
 <?php if($articles != ''): ?>
+<?php snippet('OnPageSearch') ?>
 <p class="cntr">Pages/Articles tagged with "<?php echo $tag ?>" in this page.</p>
 <?php foreach($articles as $article): ?>
 <div class="panel panel-primary">

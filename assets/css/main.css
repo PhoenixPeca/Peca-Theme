@@ -278,6 +278,22 @@ margin-bottom: 7.5px;
 height: 35px;
 border-radius: 0px;
 }
+.opsrch {
+margin-right: 7.5px;
+width: 100%;
+}
+.opsrch input {
+margin-top: 7.5px;
+margin-bottom: 7.5px;
+height: 40px;
+border-radius: 0px;
+}
+.opsrch button {
+margin-top: 7.5px;
+margin-bottom: 7.5px;
+height: 40px;
+border-radius: 0px;
+}
 .cntr {
 text-align: center;
 }
