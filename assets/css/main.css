@@ -217,6 +217,12 @@ padding-bottom: 3px;
 margin-left: 10px;
 border-radius: 15px;
 }
+.panel {
+border: 1px solid #337ab7;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
 .pager-panel {
 margin-top: 9px;
 margin-bottom: 0px;
@@ -308,4 +314,14 @@ background-color: initial;
 text-align: center;
 padding: 15px 15px;
 padding-top: 10px;
+}
+input, textarea {
+-webkit-box-shadow: none !important;
+-moz-box-shadow: none !important;
+box-shadow: none !important;
+}
+input[type=text]:focus, textarea:focus {
+-webkit-box-shadow: none !important;
+-moz-box-shadow: none !important;
+box-shadow: none !important;
 }
