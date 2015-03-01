@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
 <link rel="search" type="application/opensearchdescription+xml" title="<?php echo $site->title()->html() ?>" href="<?php echo url('opensearch.php') ?>" />
 <title><?php echo $page->title()->html()?> - <?php echo $site->title()->html() ?></title>
+<?php if(!$page->isErrorPage()): ?>
 <?php if($page->description() != ''): ?>
 <meta name="description" content="<?php echo html($page->description()) ?>" />
 <?php else: ?>
@@ -53,6 +54,7 @@
 <?php endif ?>
 <?php endif ?>
 <meta name="twitter:image" content="<?php if($page->hasImages()): ?><?php if($page->images()->first()->exif()->isColor()): ?><?php echo $page->images()->first()->url() ?><?php else: ?><?php echo url('assets/images/logo.png') ?><?php endif ?><?php else: ?><?php echo url('assets/images/logo.png') ?><?php endif ?>">
+<?php endif ?>
 <!-- Bootstrap -->
 <?php echo css('assets/css/bootstrap.min.css') ?>
 
