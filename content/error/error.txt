@@ -1,5 +1,10 @@
-Title: Error
+Title: Oops!
 
 ----
 
-Text: The page has not been found.
+Text: 
+
+It seems like the page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Here are some suggestions:
+* *If you have typed the address manually, please try to recheck it for you might misspelled a word.*
+* *We're always happy to hear anything from you. (email: aspaciop@gmail.com text: Contact us) and we'll get back to you as soon as possible.*
+* *Perhaps you might wanna use that handy search box above to find what you're looking for.*
