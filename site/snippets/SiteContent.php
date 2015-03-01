@@ -14,7 +14,5 @@
 <?php if($page->isErrorPage()): ?>
 <?php snippet('OnPageSearch') ?>
 <?php endif ?>
-<?php if($page->isErrorPage()): ?><div class="cntr"><?php endif ?>
 <?php echo $page->text()->kirbytext() ?>
-<?php if($page->isErrorPage()): ?></div><?php endif ?>
 </div>
