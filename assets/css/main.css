@@ -325,3 +325,6 @@ input[type=text]:focus, textarea:focus {
 -moz-box-shadow: none !important;
 box-shadow: none !important;
 }
+.srch-btn {
+width: 40px;
+}
