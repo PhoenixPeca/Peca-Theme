@@ -39,7 +39,7 @@ $rand = rand(0, 8);
 ?>
 <?php if(!empty($jset["responseData"]["results"])): ?>
 <a href="<?php echo $article->url() ?>">
-<img src="<?php echo $jset["responseData"]["results"][$rand]["url"]; ?>" alt="<?php echo $jset["responseData"]["results"][$rand]["title"]; ?>">
+<img src="<?php echo $jset["responseData"]["results"][$rand]["url"]; ?>" alt="<?php echo $jset["responseData"]["results"][$rand]["title"]; ?>" onError="this.onerror=null;this.src='<?php echo url('assets/images/img-na.png') ?>'; this.onerror=null;this.alt='Image Not Available';">
 </a>
 <?php else: ?>
 <a href="<?php echo $article->url() ?>">
