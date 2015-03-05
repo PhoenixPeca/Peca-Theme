@@ -1,3 +1,4 @@
+<?php if($page->parents()->count() !== 0): ?>
 <ul class="pager">
 <?php if($next = $page->nextVisible()): ?>
 <li class="previous" title="<?php echo $next->title() ?>">
@@ -15,3 +16,4 @@
 </li>
 <?php endif ?>
 </ul>
+<?php endif ?>
