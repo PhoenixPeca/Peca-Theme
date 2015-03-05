@@ -310,7 +310,7 @@ margin-bottom: 20px;
 }
 .breadcrumb {
 border-bottom:3px dashed #4183D7;
-background-color: initial;
+background-color: transparent;
 text-align: center;
 padding: 15px 15px;
 padding-top: 10px;
