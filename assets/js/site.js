@@ -82,3 +82,12 @@ var contactForm = {
     $("#feedbackSubmit").after('<div id="emailAlert" class="alert alert-' + (isError ? 'danger' : 'success') + '" style="margin-top: 5px;">' + $('<div/>').text(msg).html() + '</div>');
   }
 };
+
+/* DYNAMIC BG COLORS */
+var colors = ['#22A7F0', '#26A65B', '#4183D7', '#F7CA18', '#F22613'];
+var active = 0;
+setInterval(function(){
+    document.querySelector('body').style.backgroundColor = colors[active];
+    active++;
+    if (active == colors.length) active = 0;
+}, 5000);

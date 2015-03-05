@@ -77,6 +77,7 @@ background: url("<?php function rand_img($dir = 'assets/images/bg/img') { $image
 -o-background-size: cover;
 background-size: cover;
 background-color: #CCCCCC;
+transition: background-color 5s;
 }
 <?php if(($page->isHomePage()) OR ($page->isErrorPage())): ?>
 .p-title {
