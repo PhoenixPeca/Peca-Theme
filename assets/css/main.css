@@ -328,3 +328,29 @@ box-shadow: none !important;
 .srch-btn {
 width: 40px;
 }
+@media (min-width: 768px) {
+.thumbnail img {
+height: 187px !important;
+}
+.ofh {
+height: 200px !important;
+overflow: hidden !important;
+}
+}
+.thumbnail .caption h3 {
+margin-top: 0px;
+}
+.thumbnail .caption a, .thumbnail .caption a:hover {
+text-decoration: none;
+color: #444;
+}
+.opaction {
+padding: 10px;
+}
+.opaction:hover {
+opacity: 0.8;
+}
+.item-fancy {
+padding-right: 10px;
+padding-left: 10px;
+}

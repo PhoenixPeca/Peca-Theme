@@ -1,3 +1,8 @@
+<?php
+function truncate($string, $length, $dots = "...") {
+return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots)) . $dots : $string;
+}
+?>
 <?php $tag = urldecode(param('tag')); ?>
 <?php $articles = $page->children()->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->paginate(5); ?>
 <?php echo '<h1>#'.$tag.'</h1>'; ?>
@@ -12,7 +17,7 @@
 <div class="panel panel-primary">
 <div class="panel-heading">
 <center>
-<h2 class="TagPage"><a href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a></h2>
+<h2 class="TagPage"><a href="<?php echo $article->url() ?>"><?php echo truncate($article->title(), 30) ?></a></h2>
 <?php if($article->date('F d, Y') != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$article->date('o-m-d')); ?>"><?php echo $article->date('F jS, Y'); ?></a><?php if($article->author() != ''): ?> &dash; <a href="<?php echo url('?q='.$article->author()); ?>"><?php echo $article->author(); ?></a><?php endif ?></span></p>
 <?php else: ?>
 <?php if($article->author() != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$article->author()); ?>"><?php echo $article->author(); ?></a></span></p><?php endif ?>
@@ -50,7 +55,7 @@ $rand = rand(0, 8);
 <?php endif ?>
 </div>
 <div class="col-sm-6">
-<p class="TagPage"><?php if($article->text()->excerpt(200) != '') { echo $article->text()->excerpt(200); } else { echo 'This page/article has no contents.'; } ?><a href="<?php echo $article->url() ?>" class="rm-btn btn-ol btn btn-primary btn-outline">read&nbsp;this&nbsp;→</a></p>
+<p class="TagPage"><?php if(truncate($article->text(), 200) != '') { echo truncate($article->text(), 200); } else { echo 'This page/article has no contents.'; } ?><a href="<?php echo $article->url() ?>" class="rm-btn btn-ol btn btn-primary btn-outline">read&nbsp;this&nbsp;→</a></p>
 <?php if ($article->tags() != ''): ?>
 <hr>
 <?php foreach(str::split($article->tags()) as $tag): ?>

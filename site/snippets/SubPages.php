@@ -1,13 +1,49 @@
+<?php
+function truncate($string, $length, $dots = "...") {
+return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots)) . $dots : $string;
+}
+?>
+<?php $pcl = $page->children()->visible()->flip()->paginate(9)?>
 <?php if($page->hasVisibleChildren()): ?>
-<div class="panel panel-primary">
-<div class="panel-heading">
-Sub Page<?php if($page->children()->visible()->count() !== 1) { echo 's';} ?>
-</div>
-<div class="panel-body">
-<?php $pcl = $page->children()->visible()->flip()->paginate(10)?>
+<div class="row">
 <?php foreach($pcl as $pc): ?>
-<a href="<?php echo $pc->url() ?>"<?php if($pc->text() != '') { echo 'title="'.$pc->text()->excerpt(100).'" '; } ?> class="sp-btn btn-ol btn btn-primary btn-outline"><?php echo $pc->title()->html() ?><?php $LimitCount = 100; $LCSyntax = $LimitCount - 1; if($pc->hasVisibleChildren()): if($pc->children()->visible()->count() >= $LimitCount) { echo '<span title="Specifically, this page has '.$pc->children()->visible()->count().' sub page'; if($pc->children()->visible()->count() !== 1) { echo 's';} echo '" class="badge pull-right sp-badge">'.$LCSyntax.'+</span>';} else { echo '<span title="This page has '.$pc->children()->visible()->count().' sub page'; if($pc->children()->visible()->count() !== 1) { echo 's';} echo '" class="badge pull-right sp-badge">'.$pc->children()->visible()->count().'</span>';} endif?></a>
+<div class="item-fancy col-sm-6 col-md-4">
+<div class="opaction thumbnail">
+<?php if($image = $pc->images()->sortBy('sort', 'asc')->first()): ?>
+<a href="<?php echo $pc->url() ?>">
+<img src="<?php echo $image->url() ?>" alt="<?php echo $pc->title()->html() ?>" >
+</a>
+<?php else: ?>
+<?php if($site->simage() != 'true' && $site->simage() != 'True' && $site->simage() != 'TRUE' && $site->simage() != 'yes' && $site->simage() != 'Yes' && $site->simage() != 'YES'): ?>
+<a href="<?php echo $pc->url() ?>">
+<img src="<?php echo url('assets/images/img-na.png') ?>" alt="Image Not Available" >
+</a>
+<?php else: ?>
+<?php
+$jsrc = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=".urlencode($pc->title());
+$jset = json_decode(@file_get_contents($jsrc), true);
+$rand = rand(0, 4);
+?>
+<?php if(!empty($jset["responseData"]["results"])): ?>
+<a href="<?php echo $pc->url() ?>">
+<img src="<?php echo $jset["responseData"]["results"][$rand]["url"]; ?>" alt="<?php echo $jset["responseData"]["results"][$rand]["title"]; ?>" onError="this.onerror=null;this.src='<?php echo url('assets/images/img-na.png') ?>'; this.onerror=null;this.alt='Image Not Available';">
+</a>
+<?php else: ?>
+<a href="<?php echo $pc->url() ?>">
+<img src="<?php echo url('assets/images/img-na.png') ?>" alt="Image Not Available" >
+</a>
+<?php endif ?>
+<?php endif ?>
+<?php endif ?>
+<div class="caption ofh">
+<a href="<?php echo $pc->url() ?>"><h3><?php echo truncate($pc->title(), 30) ?></h3></a>
+<?php if($pc->text() != ''): ?><a href="<?php echo $pc->url() ?>"><p><?php echo truncate($pc->text(), 100) ?></p></a><?php endif ?>
+</div>
+</div>
+</div>
 <?php endforeach ?>
+</div>
+<?php endif ?>
 <?php if($pcl->pagination()->hasPages()): ?>
 <ul class="pager-panel pager">
 <?php if($pcl->pagination()->hasPrevPage()): ?>
@@ -21,7 +57,4 @@ Sub Page<?php if($page->children()->visible()->count() !== 1) { echo 's';} ?>
 </li>
 <?php endif ?>
 </ul>
-<?php endif ?>
-</div>
-</div>
 <?php endif ?>
