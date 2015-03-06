@@ -8,7 +8,7 @@ return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots))
 <div class="row">
 <?php foreach($pcl as $pc): ?>
 <div class="item-fancy col-sm-6 col-md-4">
-<div class="opaction thumbnail">
+<div onclick="location.href='<?php echo $pc->url() ?>';" style="cursor:pointer;" title="<?php echo $pc->title() ?>" class="opaction thumbnail">
 <?php if($image = $pc->images()->sortBy('sort', 'asc')->first()): ?>
 <a href="<?php echo $pc->url() ?>">
 <img src="<?php echo $image->url() ?>" alt="<?php echo $pc->title()->html() ?>" >
