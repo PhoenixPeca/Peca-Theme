@@ -20,7 +20,7 @@ return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots))
 </a>
 <?php else: ?>
 <?php
-$jsrc = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=".urlencode($pc->title());
+$jsrc = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=".urlencode($pc->title())."&userip="$_SERVER['REMOTE_ADDR'];
 $jset = json_decode(@file_get_contents($jsrc), true);
 $rand = rand(0, 4);
 ?>
