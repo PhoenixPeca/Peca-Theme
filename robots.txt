@@ -4,3 +4,4 @@ Disallow: /kirby
 Disallow: /panel
 Disallow: /site
 Disallow: /thumbs
+Disallow: /assets
