@@ -112,13 +112,28 @@ border-top: 1px solid #C1C1C1;
 blockquote {
 border-left: 5px solid red;
 }
+.video {
+overflow: hidden;
+height: 300px;
+}
 .video iframe {
 display: block;
 margin-left: auto;
 margin-right: auto;
 width: 100%;
+height: 100%;
 max-width: 711px;
 margin-bottom: 10px;
+}
+@media (max-width: 768px) and (min-width: 384px) {
+.video {
+height: 250px !important;
+}
+}
+@media (max-width: 348px) {
+.video {
+height: 175px !important;
+}
 }
 
 /* Navbar */
