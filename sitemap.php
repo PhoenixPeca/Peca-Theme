@@ -25,7 +25,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 
 ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<?php foreach($pages->visible()->index() as $p): ?>
+<?php foreach($pages->visible()->index() as $p): ?>
 	<url>
 <?php if(c::get('url')): ?>
 		<loc><?php echo custurlfmt(html($p->url())) ?></loc>
