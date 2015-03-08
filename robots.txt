@@ -5,3 +5,5 @@ Disallow: /panel
 Disallow: /site
 Disallow: /thumbs
 Disallow: /assets
+
+Sitemap: http://www.example.com/sitemap.php

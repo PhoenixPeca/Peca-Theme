@@ -5,7 +5,7 @@ require(__DIR__ . DS . 'kirby' . DS . 'bootstrap.php');
 $kirby = kirby();
 $site = $kirby->site();
 function siteurl() {
-return preg_replace('~/~', '//', preg_replace('~/+~', '/', implode('', explode(basename(__FILE__), kirby()->site()->url()))), 1);
+return preg_replace('~/~', '//', preg_replace('~/+~', '/', implode('', explode(basename(__FILE__), kirby()->site()->url())).'/'), 1);
 }
 ?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">

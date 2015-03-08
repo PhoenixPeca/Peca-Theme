@@ -20,7 +20,7 @@ if($errortitle==false){
 define('DS', DIRECTORY_SEPARATOR);
 require(__DIR__ . DS . 'kirby' . DS . 'bootstrap.php');
 function siteurl() {
-return preg_replace('~/~', '//', preg_replace('~/+~', '/', implode('', explode(basename(__FILE__), kirby()->site()->url()))), 1);
+return preg_replace('~/~', '//', preg_replace('~/+~', '/', implode('', explode(basename(__FILE__), kirby()->site()->url())).'/'), 1);
 }
 ?>
 <html>
