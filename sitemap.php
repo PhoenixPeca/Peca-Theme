@@ -16,16 +16,15 @@ $prsdurldmn = parse_url(preg_replace('~/~', '//', preg_replace('~/+~', '/', impl
 $procs = $prsdurldmn['scheme'].'://'.$prsdurldmn['host'].preg_replace('/\/sitemap.php/', '', $prsdurl, 1);
 return preg_replace( '/\//', '//', preg_replace("/\/+/", "/", $procs), 1);
 }
-
 // send the right header
 header('Content-type: text/xml; charset="utf-8"');
-
 // echo the doctype
 echo '<?xml version="1.0" encoding="utf-8"?>';
-
 ?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <?php foreach($pages->visible()->index() as $p): ?>
+
 	<url>
 <?php if(c::get('url')): ?>
 		<loc><?php echo custurlfmt(html($p->url())) ?></loc>
