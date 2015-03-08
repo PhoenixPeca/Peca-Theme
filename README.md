@@ -9,7 +9,8 @@ Peca Theme is an awesome bootstrap based theme for the file-based CMS, Kirby CMS
   - NOT AVAILABLE
 
 ## Installation
-Installed Kirby with the [Starterkit](https://github.com/getkirby/starterkit) delete the `/assets`, `/content` and `/site` folders and copy all directories files downloaded from Peca Theme.
+* Installed Kirby with the [Starterkit](https://github.com/getkirby/starterkit) delete the `/assets`, `/content` and `/site` folders and copy all directories files downloaded from Peca Theme.
+* Edit robots.txt file, look and change `http://www.example.com/sitemap.php` to the directory `sitemap.php` is located in your server. Ex. `http://localhost/sitemap.php`
 
 ## Why is theme free?
 Hahaha! Good question guys, well there are bundles of reasons why this theme is free:
