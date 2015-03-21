@@ -214,10 +214,10 @@ margin-bottom: 0px !important;
 background-color: #337ab7;
 padding: 3px;
 border-radius: 6px;
-color: white;
+color: white !important;
 }
 .PageInfo span a {
-color: #fff;
+color: #fff !important;
 }
 .TagPage {
 margin-top: 0px;

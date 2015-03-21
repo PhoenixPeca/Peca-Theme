@@ -37,7 +37,19 @@ $rand = rand(0, 4);
 <?php endif ?>
 <div class="caption ofh">
 <a href="<?php echo $pc->url() ?>"><h3><?php echo truncate($pc->title(), 30) ?></h3></a>
-<?php if($pc->text() != ''): ?><a href="<?php echo $pc->url() ?>"><p><?php echo truncate($pc->text(), 100) ?></p></a><?php endif ?>
+<?php if($pc->date('F d, Y') != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$pc->date('o-m-d')); ?>"><?php echo $pc->date('F jS, Y'); ?></a><?php if($pc->author() != ''): ?> &dash; <a href="<?php echo url('?q='.$pc->author()); ?>"><?php echo $pc->author(); ?></a><?php endif ?></span></p>
+<?php else: ?>
+<?php if($pc->author() != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$pc->author()); ?>"><?php echo $pc->author(); ?></a></span></p><?php endif ?>
+<?php endif ?>
+<?php if($pc->description() != ''): ?>
+<a href="<?php echo $pc->url() ?>">
+<p><?php echo truncate($pc->description(), 100) ?></p>
+</a>
+<?php else: ?>
+<a href="<?php echo $pc->url() ?>">
+<p><?php echo truncate($pc->text(), 100) ?></p>
+</a>
+<?php endif ?>
 </div>
 </div>
 </div>

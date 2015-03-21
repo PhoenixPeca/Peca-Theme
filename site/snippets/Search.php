@@ -94,7 +94,17 @@ $rand = rand(0, 4);
 <?php endif ?>
 </div>
 <div class="col-sm-6">
-<p class="TagPage"><?php if(truncate($result->text(), 200) != '') { echo truncate($result->text(), 200); } else { echo 'This page/article has no contents.'; } ?><a href="<?php echo $result->url() ?>" class="rm-btn btn-ol btn btn-primary btn-outline">read&nbsp;this&nbsp;→</a></p>
+<p class="TagPage">
+<?php if(truncate($result->description(), 200) != ''): ?>
+<?php echo truncate($result->description(), 200); ?>
+<?php else: ?>
+<?php if(truncate($result->text(), 200) != ''): ?>
+<?php echo truncate($result->text(), 200); ?>
+<?php else: ?>
+This page/article has no contents.
+<?php endif ?>
+<?php endif ?>
+<a href="<?php echo $result->url() ?>" class="rm-btn btn-ol btn btn-primary btn-outline">read&nbsp;this&nbsp;&#8594;</a></p>
 <?php if ($result->tags() != ''): ?>
 <hr>
 <?php foreach(str::split($result->tags()) as $tag): ?>
