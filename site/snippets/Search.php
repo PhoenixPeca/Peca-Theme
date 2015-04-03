@@ -122,9 +122,9 @@ $tag = urldecode(param('tag'));
 <div class="panel-body">
 <div class="row">
 <div class="col-sm-6">
-<?php if($image = thumb($result->images()->sortBy('sort', 'asc')->first(), array('width' => 514, 'height' => 250, 'crop' => true, 'quality' => 50))): ?>
+<?php if($image = $result->images()->sortBy('sort', 'asc')->first()): ?>
 <a href="<?php echo $result->url() ?>">
-<img src="<?php echo $image->url() ?>" alt="<?php echo $result->title()->html() ?>" >
+<img src="<?php echo thumb($image, array('width' => 514, 'height' => 250, 'crop' => true, 'quality' => 50))->url() ?>" alt="<?php echo $result->title()->html() ?>" >
 </a>
 <?php else: ?>
 <?php if($site->simage() != 'true' && $site->simage() != 'True' && $site->simage() != 'TRUE' && $site->simage() != 'yes' && $site->simage() != 'Yes' && $site->simage() != 'YES'): ?>

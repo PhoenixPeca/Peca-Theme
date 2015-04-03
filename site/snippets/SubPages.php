@@ -9,9 +9,9 @@ return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots))
 <?php foreach($pcl as $pc): ?>
 <div class="item-fancy col-sm-6 col-md-4">
 <div onclick="location.href='<?php echo $pc->url() ?>';" style="cursor:pointer;" title="<?php echo $pc->title() ?>" class="opaction thumbnail">
-<?php if($image = thumb($pc->images()->sortBy('sort', 'asc')->first(), array('width' => 331, 'height' => 187, 'crop' => true, 'quality' => 50))): ?>
+<?php if($image = $pc->images()->sortBy('sort', 'asc')->first()): ?>
 <a href="<?php echo $pc->url() ?>">
-<img src="<?php echo $image->url() ?>" alt="<?php echo $pc->title()->html() ?>" >
+<img src="<?php echo thumb($image, array('width' => 331, 'height' => 187, 'crop' => true, 'quality' => 50))->url() ?>" alt="<?php echo $pc->title()->html() ?>" >
 </a>
 <?php else: ?>
 <?php if($site->simage() != 'true' && $site->simage() != 'True' && $site->simage() != 'TRUE' && $site->simage() != 'yes' && $site->simage() != 'Yes' && $site->simage() != 'YES'): ?>
