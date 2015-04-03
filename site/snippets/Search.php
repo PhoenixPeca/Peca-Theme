@@ -5,24 +5,80 @@ return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots))
 ?>
 <?php
 $query = get('q');
+$type = get('type');
 $tag = urldecode(param('tag'));
 ?>
 <?php if($tag != ''): ?>
+<?php if($type == 'author'): ?>
+<?php $results = $page->search($query, 'author', array('words' => true))->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc'); ?>
+<?php $itmCount = $page->search($query, 'author', array('words' => true))->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->count(); ?>
+<?php else: ?>
+<?php if($type == 'date'): ?>
+<?php $results = $page->search($query, 'date', array('words' => true))->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc'); ?>
+<?php $itmCount = $page->search($query, 'date', array('words' => true))->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->count(); ?>
+<?php else: ?>
 <?php $results = $page->search($query)->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc'); ?>
+<?php $itmCount = $page->search($query)->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->count(); ?>
+<?php endif ?>
+<?php endif ?>
 <?php else: ?>
 <?php if($page->isHomePage()): ?>
+<?php if($type == 'author'): ?>
+<?php $results = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
+<?php else: ?>
+<?php if($type == 'date'): ?>
+<?php $results = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
+<?php else: ?>
 <?php $results = $site->search($query)->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $site->search($query)->visible()->sortBy('date', 'desc')->count(); ?>
+<?php endif ?>
+<?php endif ?>
 <?php else: ?>
 <?php if($page->isErrorPage()): ?>
+<?php if($type == 'author'): ?>
+<?php $results = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
+<?php else: ?>
+<?php if($type == 'date'): ?>
+<?php $results = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
+<?php else: ?>
 <?php $results = $site->search($query)->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $site->search($query)->visible()->sortBy('date', 'desc')->count(); ?>
+<?php endif ?>
+<?php endif ?>
 <?php else: ?>
 <?php if($tag == ''): ?>
 <?php if($page->hasVisibleChildren()): ?>
+<?php if($type == 'author'): ?>
+<?php $results = $page->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $page->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
+<?php else: ?>
+<?php if($type == 'date'): ?>
+<?php $results = $page->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $page->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
+<?php else: ?>
 <?php $results = $page->search($query)->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $page->search($query)->visible()->sortBy('date', 'desc')->count(); ?>
+<?php endif ?>
+<?php endif ?>
 <?php endif ?>
 <?php if($page->isHomePage() == false && $page->isErrorPage() == false): ?>
 <?php if($page->hasVisibleChildren() == false): ?>
+<?php if($type == 'author'): ?>
+<?php $results = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->count; ?>
+<?php else: ?>
+<?php if($type == 'date'): ?>
+<?php $results = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->count; ?>
+<?php else: ?>
 <?php $results = $site->search($query)->visible()->sortBy('date', 'desc'); ?>
+<?php $itmCount = $site->search($query)->visible()->sortBy('date', 'desc')->count; ?>
+<?php endif ?>
+<?php endif ?>
 <?php endif ?>
 <?php endif ?>
 <?php endif ?>
@@ -41,25 +97,25 @@ $tag = urldecode(param('tag'));
 <p class="cntr">There are no pages/articles tagged with "<?php echo $tag ?>" that matches with "<?php echo $query ?>" <?php if($tag != ''): ?>in this page<?php else: ?><?php if($page->isHomePage()): ?>in this site<?php else: ?><?php if($page->isErrorPage()): ?>in this site<?php else: ?><?php if($tag == ''): ?><?php if($page->hasVisibleChildren()): ?>in this page<?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php if($tag == ''): ?><?php if($page->isHomePage() == false && $page->isErrorPage() == false): ?><?php if($page->hasVisibleChildren() == false): ?>in this site<?php endif ?><?php endif ?><?php endif ?>.</p>
 <?php else: ?>
 <?php snippet('OnPageSearch') ?>
-<p class="cntr">There are no pages/articles that match with "<?php echo $query ?>" <?php if($tag != ''): ?>in this page<?php else: ?><?php if($page->isHomePage()): ?>in this site<?php else: ?><?php if($page->isErrorPage()): ?>in this site<?php else: ?><?php if($tag == ''): ?><?php if($page->hasVisibleChildren()): ?>in this page<?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php if($tag == ''): ?><?php if($page->isHomePage() == false && $page->isErrorPage() == false): ?><?php if($page->hasVisibleChildren() == false): ?>in this site<?php endif ?><?php endif ?><?php endif ?>.</p>
+<p class="cntr">There are no pages/articles that matches with "<?php echo $query ?>" <?php if($tag != ''): ?>in this page<?php else: ?><?php if($page->isHomePage()): ?>in this site<?php else: ?><?php if($page->isErrorPage()): ?>in this site<?php else: ?><?php if($tag == ''): ?><?php if($page->hasVisibleChildren()): ?>in this page<?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php if($tag == ''): ?><?php if($page->isHomePage() == false && $page->isErrorPage() == false): ?><?php if($page->hasVisibleChildren() == false): ?>in this site<?php endif ?><?php endif ?><?php endif ?>.</p>
 <?php endif ?>
 <?php endif ?>
 <?php if($results != ''): ?>
 <?php if($tag != ''): ?>
 <?php snippet('OnPageSearch') ?>
-<p class="cntr">Pages/Articles tagged with "<?php echo $tag ?>" that matches with "<?php echo $query ?>" <?php if($tag != ''): ?>in this page<?php else: ?><?php if($page->isHomePage()): ?>in this site<?php else: ?><?php if($page->isErrorPage()): ?>in this site<?php else: ?><?php if($tag == ''): ?><?php if($page->hasVisibleChildren()): ?>in this page<?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php if($tag == ''): ?><?php if($page->isHomePage() == false && $page->isErrorPage() == false): ?><?php if($page->hasVisibleChildren() == false): ?>in this site<?php endif ?><?php endif ?><?php endif ?>.</p>
+<p class="cntr">There <?php if($itmCount == 1): ?>is<?php else: ?>are<?php endif ?> <?php echo $itmCount; ?> page<?php if($itmCount != 1): ?>s<?php endif ?>/article<?php if($itmCount != 1): ?>s<?php endif ?> tagged with "<?php echo $tag ?>" that matches with "<?php echo $query ?>" <?php if($tag != ''): ?>in this page<?php else: ?><?php if($page->isHomePage()): ?>in this site<?php else: ?><?php if($page->isErrorPage()): ?>in this site<?php else: ?><?php if($tag == ''): ?><?php if($page->hasVisibleChildren()): ?>in this page<?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php if($tag == ''): ?><?php if($page->isHomePage() == false && $page->isErrorPage() == false): ?><?php if($page->hasVisibleChildren() == false): ?>in this site<?php endif ?><?php endif ?><?php endif ?>.</p>
 <?php else: ?>
 <?php snippet('OnPageSearch') ?>
-<p class="cntr">Pages/Articles that match with "<?php echo $query ?>" <?php if($tag != ''): ?>in this page<?php else: ?><?php if($page->isHomePage()): ?>in this site<?php else: ?><?php if($page->isErrorPage()): ?>in this site<?php else: ?><?php if($tag == ''): ?><?php if($page->hasVisibleChildren()): ?>in this page<?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php if($tag == ''): ?><?php if($page->isHomePage() == false && $page->isErrorPage() == false): ?><?php if($page->hasVisibleChildren() == false): ?>in this site<?php endif ?><?php endif ?><?php endif ?>.</p>
+<p class="cntr">There <?php if($itmCount == 1): ?>is<?php else: ?>are<?php endif ?> <?php echo $itmCount; ?> page<?php if($itmCount != 1): ?>s<?php endif ?>/article<?php if($itmCount != 1): ?>s<?php endif ?> that matches with "<?php echo $query ?>" <?php if($tag != ''): ?>in this page<?php else: ?><?php if($page->isHomePage()): ?>in this site<?php else: ?><?php if($page->isErrorPage()): ?>in this site<?php else: ?><?php if($tag == ''): ?><?php if($page->hasVisibleChildren()): ?>in this page<?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php endif ?><?php if($tag == ''): ?><?php if($page->isHomePage() == false && $page->isErrorPage() == false): ?><?php if($page->hasVisibleChildren() == false): ?>in this site<?php endif ?><?php endif ?><?php endif ?>.</p>
 <?php endif ?>
 <?php foreach($results as $result): ?>
 <div class="panel panel-primary">
 <div class="panel-heading">
 <center>
 <h2 class="TagPage"><a href="<?php echo $result->url() ?>"><?php echo truncate($result->title(), 30) ?></a></h2>
-<?php if($result->date('F d, Y') != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$result->date('o-m-d')); ?>"><?php echo $result->date('F jS, Y'); ?></a><?php if($result->author() != ''): ?> &dash; <a href="<?php echo url('?q='.$result->author()); ?>"><?php echo $result->author(); ?></a><?php endif ?></span></p>
+<?php if($result->date('F d, Y') != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$result->date('o-m-d').'&type=date'); ?>"><?php echo $result->date('F jS, Y'); ?></a><?php if($result->author() != ''): ?> &dash; <a href="<?php echo url('?q='.$result->author().'&type=author'); ?>"><?php echo $result->author(); ?></a><?php endif ?></span></p>
 <?php else: ?>
-<?php if($result->author() != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$result->author()); ?>"><?php echo $result->author(); ?></a></span></p><?php endif ?>
+<?php if($result->author() != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$result->author().'&type=author'); ?>"><?php echo $result->author(); ?></a></span></p><?php endif ?>
 <?php endif ?>
 </center>
 </div>

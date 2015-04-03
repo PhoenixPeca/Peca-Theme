@@ -5,6 +5,7 @@ return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots))
 ?>
 <?php $tag = urldecode(param('tag')); ?>
 <?php $articles = $page->children()->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->paginate(5); ?>
+<?php $itmCount = $page->children()->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->count(); ?>
 <?php echo '<h1>#'.$tag.'</h1>'; ?>
 <?php if($articles == ''): ?>
 <?php snippet('OnPageSearch') ?>
@@ -12,15 +13,15 @@ return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots))
 <?php endif ?>
 <?php if($articles != ''): ?>
 <?php snippet('OnPageSearch') ?>
-<p class="cntr">Pages/Articles tagged with "<?php echo $tag ?>" in this page.</p>
+<p class="cntr">There <?php if($itmCount == 1): ?>is<?php else: ?>are<?php endif ?> <?php echo $itmCount; ?> page<?php if($itmCount != 1): ?>s<?php endif ?>/article<?php if($itmCount != 1): ?>s<?php endif ?> tagged with "<?php echo $tag ?>" in this page.</p>
 <?php foreach($articles as $article): ?>
 <div class="panel panel-primary">
 <div class="panel-heading">
 <center>
 <h2 class="TagPage"><a href="<?php echo $article->url() ?>"><?php echo truncate($article->title(), 30) ?></a></h2>
-<?php if($article->date('F d, Y') != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$article->date('o-m-d')); ?>"><?php echo $article->date('F jS, Y'); ?></a><?php if($article->author() != ''): ?> &dash; <a href="<?php echo url('?q='.$article->author()); ?>"><?php echo $article->author(); ?></a><?php endif ?></span></p>
+<?php if($article->date('F d, Y') != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$article->date('o-m-d').'&type=date'); ?>"><?php echo $article->date('F jS, Y'); ?></a><?php if($article->author() != ''): ?> &dash; <a href="<?php echo url('?q='.$article->author().'&type=author'); ?>"><?php echo $article->author(); ?></a><?php endif ?></span></p>
 <?php else: ?>
-<?php if($article->author() != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$article->author()); ?>"><?php echo $article->author(); ?></a></span></p><?php endif ?>
+<?php if($article->author() != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$article->author().'&type=author'); ?>"><?php echo $article->author(); ?></a></span></p><?php endif ?>
 <?php endif ?>
 </center>
 </div>

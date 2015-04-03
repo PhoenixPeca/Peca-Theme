@@ -2,6 +2,8 @@
 
 title: Site
 pages: default
+files:
+  sortable: true
 fields:
   title:
     label: Title
