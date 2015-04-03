@@ -28,7 +28,7 @@ return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots))
 <div class="panel-body">
 <div class="row">
 <div class="col-sm-6">
-<?php if($image = $article->images()->sortBy('sort', 'asc')->first()): ?>
+<?php if($image = thumb($article->images()->sortBy('sort', 'asc')->first(), array('width' => 514, 'height' => 250, 'crop' => true, 'quality' => 50))): ?>
 <a href="<?php echo $article->url() ?>">
 <img src="<?php echo $image->url() ?>" alt="<?php echo $article->title()->html() ?>" >
 </a>
