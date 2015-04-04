@@ -1,6 +1,6 @@
-<h2>Articles</h2>
 <?php $pcl = $site->index()->shuffle()->filterBy('template', 'project')->visible()->limit(3) ?>
-<?php if($page->hasVisibleChildren()): ?>
+<?php if($pcl != ''): ?>
+<h2>Articles</h2>
 <div class="row">
 <?php foreach($pcl as $pc): ?>
 <div class="item-fancy col-sm-6 col-md-4">
