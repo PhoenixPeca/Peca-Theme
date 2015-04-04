@@ -20,6 +20,9 @@
 <?php endif ?>
 <?php if(get('q') == ''): ?>
 <?php snippet('SubPages') ?>
+<?php if($page->isHomePage()): ?>
+<?php snippet('LatestProjects') ?>
+<?php endif ?>
 <?php endif ?>
 <?php endif ?>
 </div>
