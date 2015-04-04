@@ -19,7 +19,8 @@ fields:
     width: 1/2
   description:
     label: Description
-    type:  textarea
+    type:  text
+    icon: info-circle
   keywords:
     label: Keywords
     type:  tags
