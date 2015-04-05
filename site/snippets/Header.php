@@ -1,3 +1,4 @@
+<?php function rand_img($dir = 'assets/images/bg/img') { $imagesDir = $dir.'/'; $images = glob($imagesDir . '*.{png,PNG,jpg,JPG}', GLOB_BRACE); return $images[array_rand($images)]; }  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,11 +72,13 @@
 
 <style>
 body {
-background: url("<?php function rand_img($dir = 'assets/images/bg/img') { $imagesDir = $dir.'/'; $images = glob($imagesDir . '*.{png,PNG,jpg,JPG}', GLOB_BRACE); return $images[array_rand($images)]; } echo url(rand_img()) ?>") no-repeat center center fixed;
+<?php if(@rand_img()): ?>
+background: url("<?php echo url(rand_img()) ?>") no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
+<?php endif ?>
 background-color: #CCCCCC;
 transition: background-color 5s;
 }
