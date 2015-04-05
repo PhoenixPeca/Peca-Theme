@@ -10,42 +10,42 @@ $tag = urldecode(param('tag'));
 ?>
 <?php if($tag != ''): ?>
 <?php if($type == 'author'): ?>
-<?php $results = $page->search($query, 'author', array('words' => true))->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc'); ?>
+<?php $results = $page->search($query, 'author', array('words' => true))->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $page->search($query, 'author', array('words' => true))->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->count(); ?>
 <?php else: ?>
 <?php if($type == 'date'): ?>
-<?php $results = $page->search($query, 'date', array('words' => true))->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc'); ?>
+<?php $results = $page->search($query, 'date', array('words' => true))->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $page->search($query, 'date', array('words' => true))->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->count(); ?>
 <?php else: ?>
-<?php $results = $page->search($query)->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc'); ?>
+<?php $results = $page->search($query)->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $page->search($query)->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->count(); ?>
 <?php endif ?>
 <?php endif ?>
 <?php else: ?>
 <?php if($page->isHomePage()): ?>
 <?php if($type == 'author'): ?>
-<?php $results = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
 <?php else: ?>
 <?php if($type == 'date'): ?>
-<?php $results = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
 <?php else: ?>
-<?php $results = $site->search($query)->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $site->search($query)->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $site->search($query)->visible()->sortBy('date', 'desc')->count(); ?>
 <?php endif ?>
 <?php endif ?>
 <?php else: ?>
 <?php if($page->isErrorPage()): ?>
 <?php if($type == 'author'): ?>
-<?php $results = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
 <?php else: ?>
 <?php if($type == 'date'): ?>
-<?php $results = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
 <?php else: ?>
-<?php $results = $site->search($query)->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $site->search($query)->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $site->search($query)->visible()->sortBy('date', 'desc')->count(); ?>
 <?php endif ?>
 <?php endif ?>
@@ -53,14 +53,14 @@ $tag = urldecode(param('tag'));
 <?php if($tag == ''): ?>
 <?php if($page->hasVisibleChildren()): ?>
 <?php if($type == 'author'): ?>
-<?php $results = $page->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $page->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $page->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
 <?php else: ?>
 <?php if($type == 'date'): ?>
-<?php $results = $page->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $page->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $page->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->count(); ?>
 <?php else: ?>
-<?php $results = $page->search($query)->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $page->search($query)->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $page->search($query)->visible()->sortBy('date', 'desc')->count(); ?>
 <?php endif ?>
 <?php endif ?>
@@ -68,14 +68,14 @@ $tag = urldecode(param('tag'));
 <?php if($page->isHomePage() == false && $page->isErrorPage() == false): ?>
 <?php if($page->hasVisibleChildren() == false): ?>
 <?php if($type == 'author'): ?>
-<?php $results = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $site->search($query, 'author', array('words' => true))->visible()->sortBy('date', 'desc')->count; ?>
 <?php else: ?>
 <?php if($type == 'date'): ?>
-<?php $results = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $site->search($query, 'date', array('words' => true))->visible()->sortBy('date', 'desc')->count; ?>
 <?php else: ?>
-<?php $results = $site->search($query)->visible()->sortBy('date', 'desc'); ?>
+<?php $results = $site->search($query)->visible()->sortBy('date', 'desc')->paginate(5, array('method' => 'query')); ?>
 <?php $itmCount = $site->search($query)->visible()->sortBy('date', 'desc')->count; ?>
 <?php endif ?>
 <?php endif ?>
@@ -172,4 +172,18 @@ This page/article has no contents.
 </div>
 </div>
 <?php endforeach ?>
+<?php endif ?>
+<?php if($results->pagination()->hasPages()): ?>
+<ul class="TagFilterPager pager">
+<?php if($results->pagination()->hasPrevPage()): ?>
+<li class="previous" title="Previous">
+<a href="<?php echo $results->pagination()->prevPageURL() ?>"><span class="PECA glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+</li>
+<?php endif ?>
+<?php if($results->pagination()->hasNextPage()): ?>
+<li class="next" title="Next">
+<a href="<?php echo $results->pagination()->nextPageURL() ?>"><span class="PECA glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+</li>
+<?php endif ?>
+</ul>
 <?php endif ?>
