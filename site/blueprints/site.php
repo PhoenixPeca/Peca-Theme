@@ -5,6 +5,10 @@ pages: default
 files:
   sortable: true
 fields:
+
+  siteMeta:
+    label: Site Meta
+    type: headline
   title:
     label: Title
     type:  text
@@ -24,6 +28,10 @@ fields:
   keywords:
     label: Keywords
     type:  tags
+
+  siteSettings:
+    label: Site Settings
+    type: headline
   adult:
     label: Adult Content
     type: radio
