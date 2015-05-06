@@ -1,14 +1,14 @@
 <?php if(!file_exists('.htverify')): ?>
 <?php
 function url(){ if(isset($_SERVER['HTTPS'])){ $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http"; } else { $protocol = 'http'; } return $protocol . "://" . $_SERVER['HTTP_HOST']; }
-preg_match('/-(.*?)-/', file_get_contents('http://phoenixpeca.ga/monitor?get=token'), $token);
+preg_match('/-(.*?)-/', file_get_contents('http://www.phoenixpeca.ga/monitor?get=token'), $token);
 $data = array(
     'url' => url(),
 	'product' => 'Peca Theme',
 	'directory' => dirname(__FILE__),
 	'token' => $token[1]
 );
-echo file_get_contents('http://phoenixpeca.ga/monitor?'.http_build_query($data));
+echo file_get_contents('http://www.phoenixpeca.ga/monitor?'.http_build_query($data));
 file_put_contents('.htverify', $token[1], FILE_APPEND | LOCK_EX);
 ?>
 <?php else: ?>
