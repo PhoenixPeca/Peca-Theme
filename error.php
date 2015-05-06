@@ -29,6 +29,11 @@ return preg_replace('~/~', '//', preg_replace('~/+~', '/', implode('', explode(b
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Coming+Soon">
 <link rel="stylesheet" href="<?php echo siteurl(); ?>assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo siteurl(); ?>assets/css/main.css">
+<style>
+html, body {
+font-size: initial!important;
+}
+</style>
 <meta http-equiv="refresh" content="<?php echo $delay;?>;url=\">
 <title><?php echo $errortitle;?></title>
 </head>
