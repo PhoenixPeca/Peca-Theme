@@ -11,8 +11,10 @@
 <textarea rows="10" cols="100" class="TA-FC form-control" id="message" name="message" placeholder="Message"></textarea>
 <span class="help-block" style="display: none;">Please enter a message.</span>
 </div>
+<div class="captcha-content" >
 <img class="captcha" id="captcha" src="/assets/forms/contact/securimage_show.php" alt="CAPTCHA Image" />
 <a href="#" onclick="document.getElementById('captcha').src = '/assets/forms/contact/securimage_show.php?' + Math.random(); return false" class="btn-ol btn btn-info btn-outline" title="Reset code"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a><br/>
+</div>
 <div class="form-group" style="margin-top: 10px;">
 <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="For security, please enter the code displayed in the box." />
 <span class="help-block" style="display: none;">Please enter the code displayed within the image.</span>
