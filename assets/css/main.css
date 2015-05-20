@@ -100,11 +100,21 @@ display: none;
 background-color: rgba(135, 135, 135, 0.50);
 text-decoration: none;
 }
+.captcha-content {
+margin-bottom: 15px !important;
+}
+.captcha-content img {
+float: left !important;
+margin-bottom: 0px !important;
+}
+.captcha-content a {
+float: left !important;
+margin-top: 20px !important;
+margin-left: 5px !important;
+}
 .captcha {
 width: 215px;
 height: 80px;
-display: initial;
-margin-bottom: 0px;
 }
 hr {
 border-top: 1px solid #C1C1C1;
