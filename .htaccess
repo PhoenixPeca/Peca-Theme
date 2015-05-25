@@ -47,8 +47,8 @@ RewriteRule ^(.*) index.php [L]
 # custom error pages
 ErrorDocument 400 /error.php
 ErrorDocument 401 /error.php
-ErrorDocument 403 /error.php
-ErrorDocument 404 /error.php
+ErrorDocument 403 /error
+ErrorDocument 404 /error
 ErrorDocument 500 /error.php
 
 # CACHE 30 MINUTES
