@@ -1,6 +1,9 @@
 <?php
 $tag = urldecode(param('tag'));
 ?>
+<li class="desktop dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="glyphicon glyphicon-search"></span></a>
+<ul class="dropdown-menu" role="menu">
 <li>
 <form role="search" class="srch">
 <div class="input-group">
@@ -12,4 +15,6 @@ $tag = urldecode(param('tag'));
 </div>
 </div>
 </form>
+</li>
+</ul>
 </li>
