@@ -86,6 +86,11 @@ This page/article has no contents.
 <a href="<?php echo $articles->pagination()->prevPageURL() ?>"><span class="PECA glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
 </li>
 <?php endif ?>
+<?php foreach($articles->pagination()->range(5) as $paging): ?>
+<li class="desktop-only">
+<a href="<?php echo $articles->pagination()->pageURL($paging); ?>"><?php echo $paging; ?></a>
+</li>
+<?php endforeach ?>
 <?php if($articles->pagination()->hasNextPage()): ?>
 <li class="next" title="Next">
 <a href="<?php echo $articles->pagination()->nextPageURL() ?>"><span class="PECA glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
