@@ -180,6 +180,11 @@ This page/article has no contents.
 <a href="<?php echo $results->pagination()->prevPageURL() ?>"><span class="PECA glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
 </li>
 <?php endif ?>
+<?php foreach($results->pagination()->range(5) as $paging): ?>
+<li class="desktop-only">
+<a href="<?php echo $results->pagination()->pageURL($paging); ?>"><?php echo $paging; ?></a>
+</li>
+<?php endforeach ?>
 <?php if($results->pagination()->hasNextPage()): ?>
 <li class="next" title="Next">
 <a href="<?php echo $results->pagination()->nextPageURL() ?>"><span class="PECA glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
