@@ -63,6 +63,11 @@ $rand = rand(0, 4);
 <a href="<?php echo $pcl->pagination()->prevPageURL() ?>"><span class="PECA glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
 </li>
 <?php endif ?>
+<?php foreach($pcl->pagination()->range(5) as $paging): ?>
+<li class="desktop-only">
+<a href="<?php echo $pcl->pagination()->pageURL($paging); ?>"><?php echo $paging; ?></a>
+</li>
+<?php endforeach ?>
 <?php if($pcl->pagination()->hasNextPage()): ?>
 <li class="next" title="Next">
 <a href="<?php echo $pcl->pagination()->nextPageURL() ?>"><span class="PECA glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
