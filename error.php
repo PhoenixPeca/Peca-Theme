@@ -34,7 +34,7 @@ html, body {
 font-size: initial!important;
 }
 </style>
-<meta http-equiv="refresh" content="<?php echo $delay;?>;url=\">
+<meta http-equiv="refresh" content="<?php echo $delay;?>;url=/?_rdr">
 <title><?php echo $errortitle;?></title>
 </head>
 <body>
