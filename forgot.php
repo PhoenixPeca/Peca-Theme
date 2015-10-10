@@ -23,14 +23,14 @@ return $randomString;
 }
 ?>
 <?php
-if(!file_exists(".htresetkey")) {
-$fp = fopen(".htresetkey","w");  
+if(!file_exists("kirby/.htresetkey")) {
+$fp = fopen("kirby/.htresetkey","w");  
 fwrite($fp,generateRandomString(8));  
 fclose($fp);
 } else {
-$checkkey = file_get_contents('.htresetkey');
+$checkkey = file_get_contents('kirby/.htresetkey');
 if(strlen($checkkey) != 8) {
-$fp = fopen(".htresetkey","w");  
+$fp = fopen("kirby/.htresetkey","w");  
 fwrite($fp,generateRandomString(8));  
 fclose($fp);
 }
@@ -41,8 +41,8 @@ fclose($fp);
 <?php if($_GET['key'] != ''): ?>
 <?php if($_GET['token'] != ''): ?>
 <?php if(file_exists($filenameGET)): ?>
-<?php if($DataGET['password'] == crypt::decode(base64_decode($_GET['key']), file_get_contents('.htresetkey'), 'blowfish')): ?>
-<?php if(TimeCount(crypt::decode(base64_decode($_GET['token']), file_get_contents('.htresetkey'), 'blowfish')) <= 18000 && TimeCount(crypt::decode(base64_decode($_GET['token']), file_get_contents('.htresetkey'), 'blowfish')) != 0): ?>
+<?php if($DataGET['password'] == crypt::decode(base64_decode($_GET['key']), file_get_contents('kirby/.htresetkey'), 'blowfish')): ?>
+<?php if(TimeCount(crypt::decode(base64_decode($_GET['token']), file_get_contents('kirby/.htresetkey'), 'blowfish')) <= 18000 && TimeCount(crypt::decode(base64_decode($_GET['token']), file_get_contents('kirby/.htresetkey'), 'blowfish')) != 0): ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,7 +69,7 @@ $modify = yaml::read($filenameGET);
 $modify['password'] = password::hash($_POST['password']);
 unset($modify[0]);
 if(file_exists($filenameGET)) {
-if($DataGET['password'] == crypt::decode(base64_decode($_GET['key']), file_get_contents('.htresetkey'), 'blowfish')) {
+if($DataGET['password'] == crypt::decode(base64_decode($_GET['key']), file_get_contents('kirby/.htresetkey'), 'blowfish')) {
 file_put_contents($filenameGET, "<?php if(!defined('KIRBY')) exit ?>\n\n".yaml::encode($modify));
 echo '<div class="message message-is-notice"><span class="message-content">You may now login with your new password</span><span class="message-toggle"><i>×</i></span></div>';
 } else {
@@ -92,7 +92,7 @@ $(this).addClass('hidden');
 </body>
 </html>
 <?php else: ?>
-<?php if(TimeCount(crypt::decode(base64_decode($_GET['token']), file_get_contents('.htresetkey'), 'blowfish')) == 0): ?>
+<?php if(TimeCount(crypt::decode(base64_decode($_GET['token']), file_get_contents('kirby/.htresetkey'), 'blowfish')) == 0): ?>
 Token is either invalid or expired
 <?php else: ?>
 Token is either invalid or expired
@@ -153,7 +153,7 @@ $message = '
 <body>
 <b>Hello '.$DataPOST['username'].',</b>
 <br>
-<p>We recently recieved a password reset request for your email address. If you would like to reset your password, please do so using the following link:<br><a href="'.url::base().'/'.basename(__FILE__).'?username='.$DataPOST['username'].'&key='.urlencode(base64_encode(crypt::encode($DataPOST['password'], file_get_contents('.htresetkey'), 'blowfish'))).'&token='.urlencode(base64_encode(crypt::encode(date('Y-m-d H:i:s', time()), file_get_contents('.htresetkey'), 'blowfish'))).'">Reset your password</a></p>
+<p>We recently recieved a password reset request for your email address. If you would like to reset your password, please do so using the following link:<br><a href="'.url::base().'/'.basename(__FILE__).'?username='.$DataPOST['username'].'&key='.urlencode(base64_encode(crypt::encode($DataPOST['password'], file_get_contents('kirby/.htresetkey'), 'blowfish'))).'&token='.urlencode(base64_encode(crypt::encode(date('Y-m-d H:i:s', time()), file_get_contents('kirby/.htresetkey'), 'blowfish'))).'">Reset your password</a></p>
 <p>Please note that the link above is only valid for 5 hours, so if you wish to reset your password after this, you\'ll have to request it again using the <a href="'.url::base().'/forgot.php'.'">forgotten password page</a>.</p>
 <p>If you did not request a password reset, please ignore this email.</p>
 </body>
