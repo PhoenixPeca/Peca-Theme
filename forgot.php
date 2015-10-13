@@ -12,26 +12,20 @@ $processed = time() - strtotime($val);
 $time = ($processed<1)? '0' : $processed;
 return $time;
 }
-function generateRandomString($length = 10) {
-$characters = 'abc1defghij2klmno3pq4rstuvw5xyzABCD6EFGH7IJKLMNO8PQRS9TUVWX0YZ';
-$charactersLength = strlen($characters);
-$randomString = '';
-for ($i = 0; $i < $length; $i++) {
-$randomString .= $characters[rand(0, $charactersLength - 1)];
-}
-return $randomString;
+function generateRandomString($bytes = 10) {
+return bin2hex(openssl_random_pseudo_bytes($bytes, $crypto_strong));
 }
 ?>
 <?php
 if(!file_exists("kirby/.htresetkey")) {
 $fp = fopen("kirby/.htresetkey","w");  
-fwrite($fp,generateRandomString(8));  
+fwrite($fp,generateRandomString(10));  
 fclose($fp);
 } else {
 $checkkey = file_get_contents('kirby/.htresetkey');
-if(strlen($checkkey) != 8) {
+if(strlen($checkkey) != 20) {
 $fp = fopen("kirby/.htresetkey","w");  
-fwrite($fp,generateRandomString(8));  
+fwrite($fp,generateRandomString(10));  
 fclose($fp);
 }
 }
