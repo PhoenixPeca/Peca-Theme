@@ -20,7 +20,7 @@
 <?php endif ?>
 <?php if(get('q') == ''): ?>
 <?php snippet('SubPages') ?>
-<?php if($page->isHomePage()): ?>
+<?php if($page->isHomePage() OR $page->isErrorPage()): ?>
 <?php snippet('LatestProjects') ?>
 <?php endif ?>
 <?php endif ?>

@@ -19,6 +19,9 @@
 <?php snippet('ArticleNavigation') ?>
 <?php snippet('Tags') ?>
 <?php snippet('SubPages') ?>
+<?php if($page->comments() == "true"): ?>
+<?php snippet('Disqus', array('disqus_shortname' => $site->disqusSN())) ?>
+<?php endif ?>
 <?php endif ?>
 <?php endif ?>
 </div>

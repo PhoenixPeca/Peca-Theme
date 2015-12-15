@@ -5,53 +5,53 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-<link rel="search" type="application/opensearchdescription+xml" title="<?php echo $site->title()->html() ?>" href="<?php echo url('opensearch.php') ?>" />
-<title><?php echo $page->title()->html()?> - <?php echo $site->title()->html() ?></title>
+<link rel="search" type="application/opensearchdescription+xml" title="<?php echo htmlspecialchars($site->title()->html(), ENT_QUOTES, 'UTF-8') ?>" href="<?php echo url('opensearch.php') ?>" />
+<title><?php echo htmlspecialchars($page->title()->html(), ENT_QUOTES, 'UTF-8') ?> - <?php echo htmlspecialchars($site->title()->html(), ENT_QUOTES, 'UTF-8') ?></title>
 <?php if(!$page->isErrorPage()): ?>
 <?php if($page->description() != ''): ?>
-<meta name="description" content="<?php echo html($page->description()) ?>" />
+<meta name="description" content="<?php echo htmlspecialchars(html($page->description()), ENT_QUOTES, 'UTF-8') ?>" />
 <?php else: ?>
 <?php if($site->description() != ''): ?>
-<meta name="description" content="<?php echo html($site->description()) ?>" />
+<meta name="description" content="<?php echo htmlspecialchars(html($site->description()), ENT_QUOTES, 'UTF-8') ?>" />
 <?php endif ?>
 <?php endif ?>
 <?php if($page->keywords() != ''): ?>
-<meta name="keywords" content="<?php echo preg_replace('!\s+!', ' ', preg_replace('/\s*,+\s*/', ', ', $page->keywords())) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars(preg_replace('!\s+!', ' ', preg_replace('/\s*,+\s*/', ', ', $page->keywords())), ENT_QUOTES, 'UTF-8') ?>" />
 <?php else: ?>
 <?php if($site->keywords() != ''): ?>
-<meta name="keywords" content="<?php echo preg_replace('!\s+!', ' ', preg_replace('/\s*,+\s*/', ', ', $site->keywords())) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars(preg_replace('!\s+!', ' ', preg_replace('/\s*,+\s*/', ', ', $site->keywords())), ENT_QUOTES, 'UTF-8') ?>" />
 <?php endif ?>
 <?php endif ?>
 <link rel="canonical" href="<?php echo $page->url() ?>" />
 <meta property="og:url" content="<?php echo $page->url() ?>">
 <meta property="og:image" content="<?php if($page->hasImages()): ?><?php if($page->images()->first()->exif()->isColor()): ?><?php echo $page->images()->first()->url() ?><?php else: ?><?php echo url('assets/images/logo.png') ?><?php endif ?><?php else: ?><?php echo url('assets/images/logo.png') ?><?php endif ?>">
 <?php if($page->description() != ''): ?>
-<meta property="og:description" content="<?php echo html($page->description()) ?>" />
+<meta property="og:description" content="<?php echo htmlspecialchars(html($page->description()), ENT_QUOTES, 'UTF-8') ?>" />
 <?php else: ?>
 <?php if($site->description() != ''): ?>
-<meta property="og:description" content="<?php echo html($site->description()) ?>" />
+<meta property="og:description" content="<?php echo htmlspecialchars(html($site->description()), ENT_QUOTES, 'UTF-8') ?>" />
 <?php endif ?>
 <?php endif ?>
-<meta property="og:title" content="<?php echo $page->title()->html() ?> - <?php echo $site->title()->html() ?>">
-<meta property="og:site_name" content="<?php echo $site->title()->html() ?>">
+<meta property="og:title" content="<?php echo htmlspecialchars($page->title()->html(), ENT_QUOTES, 'UTF-8') ?> - <?php echo htmlspecialchars($site->title()->html(), ENT_QUOTES, 'UTF-8') ?>">
+<meta property="og:site_name" content="<?php echo htmlspecialchars($site->title()->html(), ENT_QUOTES, 'UTF-8') ?>">
 <meta property="og:see_also" content="<?php echo url('') ?>">
-<meta itemprop="name" content="<?php echo $page->title()->html() ?> - <?php echo $site->title()->html() ?>">
+<meta itemprop="name" content="<?php echo htmlspecialchars($page->title()->html(), ENT_QUOTES, 'UTF-8') ?> - <?php echo htmlspecialchars($site->title()->html(), ENT_QUOTES, 'UTF-8') ?>">
 <?php if($page->description() != ''): ?>
-<meta itemprop="description" content="<?php echo html($page->description()) ?>" />
+<meta itemprop="description" content="<?php echo htmlspecialchars(html($page->description()), ENT_QUOTES, 'UTF-8') ?>" />
 <?php else: ?>
 <?php if($site->description() != ''): ?>
-<meta itemprop="description" content="<?php echo html($site->description()) ?>" />
+<meta itemprop="description" content="<?php echo htmlspecialchars(html($site->description()), ENT_QUOTES, 'UTF-8') ?>" />
 <?php endif ?>
 <?php endif ?>
 <meta itemprop="image" content="<?php if($page->hasImages()): ?><?php if($page->images()->first()->exif()->isColor()): ?><?php echo $page->images()->first()->url() ?><?php else: ?><?php echo url('assets/images/logo.png') ?><?php endif ?><?php else: ?><?php echo url('assets/images/logo.png') ?><?php endif ?>">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:url" content="<?php echo $page->url() ?>">
-<meta name="twitter:title" content="<?php echo $page->title()->html() ?> - <?php echo $site->title()->html() ?>">
+<meta name="twitter:title" content="<?php echo htmlspecialchars($page->title()->html(), ENT_QUOTES, 'UTF-8') ?> - <?php echo htmlspecialchars($site->title()->html(), ENT_QUOTES, 'UTF-8') ?>">
 <?php if($page->description() != ''): ?>
-<meta name="twitter:description" content="<?php echo html($page->description()) ?>" />
+<meta name="twitter:description" content="<?php echo htmlspecialchars(html($page->description()), ENT_QUOTES, 'UTF-8') ?>" />
 <?php else: ?>
 <?php if($site->description() != ''): ?>
-<meta name="twitter:description" content="<?php echo html($site->description()) ?>" />
+<meta name="twitter:description" content="<?php echo htmlspecialchars(html($site->description()), ENT_QUOTES, 'UTF-8') ?>" />
 <?php endif ?>
 <?php endif ?>
 <meta name="twitter:image" content="<?php if($page->hasImages()): ?><?php if($page->images()->first()->exif()->isColor()): ?><?php echo $page->images()->first()->url() ?><?php else: ?><?php echo url('assets/images/logo.png') ?><?php endif ?><?php else: ?><?php echo url('assets/images/logo.png') ?><?php endif ?>">
@@ -120,7 +120,7 @@ margin-bottom: 20px;
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a id="ChangeColor" class="navbar-brand logo" href="<?php echo url('') ?>" title="Go to <?php echo $site->title()->html() ?> Home"><?php echo $site->title()->html() ?></a>
+<a id="ChangeColor" class="navbar-brand logo" href="<?php echo url('') ?>" title="Go to <?php echo htmlspecialchars($site->title()->html(), ENT_QUOTES, 'UTF-8') ?> Home"><?php echo htmlspecialchars($site->title()->html(), ENT_QUOTES, 'UTF-8') ?></a>
 </div>
 <?php snippet('Menu') ?>
 </div>

@@ -6,22 +6,22 @@ return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots))
 <?php $tag = urldecode(param('tag')); ?>
 <?php $articles = $page->children()->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->paginate(5); ?>
 <?php $itmCount = $page->children()->visible()->filterBy('tags', $tag, ',')->sortBy('date', 'desc')->count(); ?>
-<?php echo '<h1>#'.$tag.'</h1>'; ?>
+<?php echo '<h1>#'.htmlspecialchars($tag, ENT_QUOTES, 'UTF-8').'</h1>'; ?>
 <?php if($articles == ''): ?>
 <?php snippet('OnPageSearch') ?>
-<p class="cntr">There are no pages/articles tagged with "<?php echo $tag ?>" in this page.</p>
+<p class="cntr">There are no pages/articles tagged with "<?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8') ?>" in this page.</p>
 <?php endif ?>
 <?php if($articles != ''): ?>
 <?php snippet('OnPageSearch') ?>
-<p class="cntr">There <?php if($itmCount == 1): ?>is<?php else: ?>are<?php endif ?> <?php echo $itmCount; ?> page<?php if($itmCount != 1): ?>s<?php endif ?>/article<?php if($itmCount != 1): ?>s<?php endif ?> tagged with "<?php echo $tag ?>" in this page.</p>
+<p class="cntr">There <?php if($itmCount == 1): ?>is<?php else: ?>are<?php endif ?> <?php echo htmlspecialchars($itmCount, ENT_QUOTES, 'UTF-8') ?> page<?php if($itmCount != 1): ?>s<?php endif ?>/article<?php if($itmCount != 1): ?>s<?php endif ?> tagged with "<?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8') ?>" in this page.</p>
 <?php foreach($articles as $article): ?>
 <div class="panel panel-primary">
 <div class="panel-heading">
 <center>
-<h2 class="TagPage"><a href="<?php echo $article->url() ?>"><?php echo truncate($article->title(), 30) ?></a></h2>
-<?php if($article->date('F d, Y') != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$article->date('o-m-d').'&type=date'); ?>"><?php echo $article->date('F jS, Y'); ?></a><?php if($article->author() != ''): ?> &dash; <a href="<?php echo url('?q='.$article->author().'&type=author'); ?>"><?php echo $article->author(); ?></a><?php endif ?></span></p>
+<h2 class="TagPage"><a href="<?php echo $article->url() ?>"><?php echo htmlspecialchars(truncate($article->title(), 30), ENT_QUOTES, 'UTF-8') ?></a></h2>
+<?php if($article->date('F d, Y') != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$article->date('o-m-d').'&type=date'); ?>"><?php echo htmlspecialchars($article->date('F jS, Y'), ENT_QUOTES, 'UTF-8') ?></a><?php if($article->author() != ''): ?> &dash; <a href="<?php echo url('?q='.$article->author().'&type=author'); ?>"><?php echo htmlspecialchars($article->author(), ENT_QUOTES, 'UTF-8') ?></a><?php endif ?></span></p>
 <?php else: ?>
-<?php if($article->author() != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$article->author().'&type=author'); ?>"><?php echo $article->author(); ?></a></span></p><?php endif ?>
+<?php if($article->author() != ''): ?><p class="PageInfo"><span><a href="<?php echo url('?q='.$article->author().'&type=author'); ?>"><?php echo htmlspecialchars($article->author(), ENT_QUOTES, 'UTF-8') ?></a></span></p><?php endif ?>
 <?php endif ?>
 </center>
 </div>
@@ -30,7 +30,7 @@ return (strlen($string) > $length) ? substr($string, 0, $length - strlen($dots))
 <div class="col-sm-6">
 <?php if($image = $article->images()->sortBy('sort', 'asc')->first()): ?>
 <a href="<?php echo $article->url() ?>">
-<img src="<?php echo thumb($image, array('width' => 514, 'height' => 250, 'crop' => true, 'quality' => 50))->url() ?>" alt="<?php echo $article->title()->html() ?>" >
+<img src="<?php echo thumb($image, array('width' => 514, 'height' => 250, 'crop' => true, 'quality' => 50))->url() ?>" alt="<?php echo htmlspecialchars($article->title()->html(), ENT_QUOTES, 'UTF-8') ?>" >
 </a>
 <?php else: ?>
 <?php if($site->simage() != 'true' && $site->simage() != 'True' && $site->simage() != 'TRUE' && $site->simage() != 'yes' && $site->simage() != 'Yes' && $site->simage() != 'YES'): ?>
@@ -58,10 +58,10 @@ $rand = rand(0, 8);
 <div class="col-sm-6">
 <p class="TagPage">
 <?php if(truncate($article->description(), 200) != ''): ?>
-<?php echo truncate($article->description(), 200); ?>
+<?php echo htmlspecialchars(truncate($article->description(), 200), ENT_QUOTES, 'UTF-8') ?>
 <?php else: ?>
 <?php if(truncate($article->text(), 200) != ''): ?>
-<?php echo truncate($article->text(), 200); ?>
+<?php echo htmlspecialchars(truncate($article->text(), 200), ENT_QUOTES, 'UTF-8') ?>
 <?php else: ?>
 This page/article has no contents.
 <?php endif ?>
@@ -70,7 +70,7 @@ This page/article has no contents.
 <?php if ($article->tags() != ''): ?>
 <hr>
 <?php foreach(str::split($article->tags()) as $tag): ?>
-<a class="tags-btn btn btn-<?php if(urldecode(param('tag')) == $tag) { echo 'primary'; } else { echo 'default'; } ?>" href="<?php echo $article->parent()->url() . '/tag:' . urlencode($tag) ?>" role="button"><?php echo $tag; ?></a>
+<a class="tags-btn btn btn-<?php if(urldecode(param('tag')) == $tag) { echo 'primary'; } else { echo 'default'; } ?>" href="<?php echo $article->parent()->url() . '/tag:' . urlencode($tag) ?>" role="button"><?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8') ?></a>
 <?php endforeach ?>
 <?php endif ?>
 </div>
@@ -88,7 +88,7 @@ This page/article has no contents.
 <?php endif ?>
 <?php foreach($articles->pagination()->range(5) as $paging): ?>
 <li class="desktop-only">
-<a href="<?php echo $articles->pagination()->pageURL($paging); ?>"><?php echo $paging; ?></a>
+<a href="<?php echo $articles->pagination()->pageURL($paging); ?>"><?php echo htmlspecialchars($paging, ENT_QUOTES, 'UTF-8') ?></a>
 </li>
 <?php endforeach ?>
 <?php if($articles->pagination()->hasNextPage()): ?>

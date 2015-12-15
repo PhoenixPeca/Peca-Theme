@@ -5,7 +5,7 @@ Tags
 </div>
 <div class="panel-body">
 <?php foreach(str::split($page->tags()) as $tag): ?>
-<a class="tags-btn btn btn-default" href="<?php echo $page->parent()->url() . '/tag:' . urlencode($tag) ?>" role="button"><?php echo $tag; ?></a>
+<a class="tags-btn btn btn-default" href="<?php echo $page->parent()->url() . '/tag:' . urlencode($tag) ?>" role="button"><?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8') ?></a>
 <?php endforeach ?>
 </div>
 </div>
