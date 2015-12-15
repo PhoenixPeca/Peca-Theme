@@ -6,8 +6,8 @@ files:
   sortable: true
 fields:
 
-  siteMeta:
-    label: Site Meta
+  siteOptions:
+    label: Site Options
     type: headline
   title:
     label: Title
@@ -32,6 +32,9 @@ fields:
   siteSettings:
     label: Site Settings
     type: headline
+  disqusSN:
+    label: Disqus Shortname
+    type:  text
   adult:
     label: Adult Content
     type: radio
