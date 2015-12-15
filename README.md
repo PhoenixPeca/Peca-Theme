@@ -8,6 +8,28 @@ Peca Theme is an awesome bootstrap based theme for the file-based CMS, Kirby CMS
 - Back End:
   - NOT AVAILABLE
 
+## Features
+- Smart Image (This feature seaches related images from google to be used as thumbnail in some parts of your site)
+- Opensearch (OpenSearch is a collection of technologies that allow publishing of search results in a format suitable for syndication and aggregation)
+- Built-in RSS Feed (This feature allows users to recieve updates from your site to thier your desktop)
+- Built-in robots.txt
+- Buit-in sitemap (This feature allows the search engines to crawl your site faster and efficiently)
+- Background image randomiser (This feature allows you to change your website background image every page load)
+- Search engine optimized (We've included a lot of meta tags just to make your website more discoverable)
+- Social media optimized (We've included a lot of meta tags just to make your website more appealing to netizens)
+- Custom error pages (This allows you to show error pages into your site the way you want it to.)
+- XSS-attack-free (This theme protects you from XSS attacks 'cuz it filters every single input characters from clients)
+- Built-in smart search (Unlike other paid themes, this theme has a smart search feature that allows you to search productively)
+- Built-in Disqus Comments Integration (All you have to worry is your disqus shortname)
+- Enable or disable comments (This feature allows you to control what pages users can comment)
+- Google fonts (Your website will never look ugly AGAIN)
+- Built-in Contact Form with captcha (All you have to do is to create a page with the name "Contact"; and there you have it)
+- Mobile Friendly (This theme is based on Bootstrap framework, so there is nothing to worry about)
+- Numbered Pagination up to 5 pages
+- Usage of thumbnails (This feature makes your website blazingly FAST)
+- Sitename Logo is colorful (Changes colors)
+- Developed by someone you didn't expect; a child! Nah! just kidding I'm already a teen-ager (15 Years old)
+
 ## Installation
 * Install Kirby with the [Starterkit](https://github.com/getkirby/starterkit) delete the `/assets`, `/content` and `/site` folders and copy all directories and files downloaded from Peca Theme.
 * Edit robots.txt file, look and change `http://www.example.com/sitemap.php` to the directory `sitemap.php` is located in your server. Ex. `http://localhost/sitemap.php`
