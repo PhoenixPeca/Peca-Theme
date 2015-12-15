@@ -11,7 +11,7 @@ Peca Theme is an awesome bootstrap based theme for the file-based CMS, Kirby CMS
 ## Features
 - Smart Image (This feature seaches related images from google to be used as thumbnail in some parts of your site)
 - Opensearch (OpenSearch is a collection of technologies that allow publishing of search results in a format suitable for syndication and aggregation)
-- Built-in RSS Feed (This feature allows users to recieve updates from your site to thier your desktop)
+- Built-in RSS Feed (This feature allows users to recieve updates from your site to thier desktop)
 - Built-in robots.txt
 - Buit-in sitemap (This feature allows the search engines to crawl your site faster and efficiently)
 - Background image randomiser (This feature allows you to change your website background image every page load)
