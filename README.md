@@ -2,10 +2,10 @@
 Peca Theme is an awesome bootstrap based theme for the file-based CMS, Kirby CMS. This theme  was equipped with great features and smart functions. It was optimized for mobile phones, search-engines, social-networking sites, and users of course for best experience. [Background pictures designed by Freepik] (http://www.freepik.com/free-photos-vectors/background).
 
 ## Demo?
-- Front End: [DEMO](http://phoenixpeca.zz.vc/)
+- Front End: [DEMO](http://phoenixpeca.ga/demo/panel)
   - Browse the site seamlessly.
 
-- Back End: [DEMO](http://phoenixpeca.zz.vc/panel)
+- Back End: [DEMO](http://phoenixpeca.ga/demo/panel)
   - NOT AVAILABLE
 
 ## Installation
