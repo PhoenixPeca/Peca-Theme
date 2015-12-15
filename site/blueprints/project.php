@@ -6,8 +6,8 @@ files:
   sortable: true
 fields:
 
-  pageMeta:
-    label: Page Meta
+  pageOptions:
+    label: Page Options
     type: headline
   title:
     label: Title
@@ -19,7 +19,8 @@ fields:
     default: today
   author:
     label: Author
-    type: user
+    type:  text
+    icon: user
     width: 1/2
   description:
     label: Description
@@ -31,6 +32,13 @@ fields:
   tags:
     label: Tags
     type:  tags
+  comments:
+    label: Comments & Discussions
+    type: radio
+    default: true
+    options:
+      true: Yes, allow users to comment on this page.
+      false: No, don't allow users to comment on this page.
 
   pageContent:
     label: Page Content
